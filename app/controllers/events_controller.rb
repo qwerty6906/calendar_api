@@ -14,6 +14,10 @@ class EventsController < ApplicationController
     else 
       render json: @event.errors, status: :unprocessable_entity
     end
+
+  rescue ActiveRecord::StatementInvalid 
+    render json: {error: "event overlapped"}, status: :unprocessable_entity
+
   end
 
   private
