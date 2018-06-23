@@ -4,6 +4,6 @@ class UserMailer < ApplicationMailer
   def notify_email
     @event = params[:event]
     @user = @event.user
-    mail(to: @user.email, subject: "The '#{@event.title}' event will start in 10 munites.")
+    mail(to: "#{@user.name} <#{@user.email}>", subject: "The '#{@event.title}' event will start in 10 munites.")
   end
 end
