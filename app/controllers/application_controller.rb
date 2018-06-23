@@ -3,7 +3,6 @@ class ApplicationController < ActionController::API
   before_action :authenticate
   def current_user
     if auth_present?
-      puts "IF TOKEN #{auth}"
       user = User.find(auth[:sub])
       @current_user ||= user if user
     end
