@@ -7,7 +7,7 @@ https://calendareventsapi.herokuapp.com/
 * GET /events - возвращает JSON с массивом всех ненаступивших событий
 > [{"title":"Test Event","begin":"2018-06-26T14:15:00.000Z","end":"2018-06-26T14:30:00.000Z"},{"title":"Event 1","begin":"2018-07-07T11:47:14.021Z","end":"2018-07-07T14:47:14.021Z"}]
 
-* POST /events - тело запросто должно содержать JSON следующего вида
+* POST /events - тело запроса должно содержать JSON следующего вида
 > {
   "event": {
     "title": "Test Event",
