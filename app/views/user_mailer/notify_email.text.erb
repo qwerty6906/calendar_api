@@ -1,2 +1,2 @@
 Hello, <%= @user.name %>!
-<%= @event.title %> will start at <%= @event.begin %> and stop at <%= @event.end %>
+<%= @event.title %> will start at <%=format_time @event.begin, timezone: @user.timezone %> and stop at <%=format_time @event.end, timezone: @user_timezone %>

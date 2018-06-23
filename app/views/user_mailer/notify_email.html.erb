@@ -2,7 +2,7 @@
     <tr>
       <td class="float-center" align="left" valign="top">
         <h1>Hello, <%= @user.name %>!</h1>
-        <%= @event.title %> will start at <%= @event.begin %> and stop at <%= @event.end %>
+        <%= @event.title %> will start at <%=format_time @event.begin, timezone: @user.timezone %> and stop at <%=format_time @event.end, timezone: @user.timezone %>
       </td>
     </tr>
   </table>
