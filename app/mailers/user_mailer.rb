@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'notification@calendar.com'
+  default from: 'Heroku Calendar API <notification@calendar.com>'
 
   def notify_email
     @event = params[:event]
