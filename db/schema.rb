@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_23_092228) do
+ActiveRecord::Schema.define(version: 2018_06_23_111221) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "btree_gist"
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
@@ -21,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_06_23_092228) do
     t.tstzrange "duration", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "duration"], name: "no_overlap", using: :gist
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
