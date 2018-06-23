@@ -9,6 +9,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
     if @event.save
+      UserMailer.with(event: @event).notify_email.deliver_later(wait_until: recive_time)
       render json: @event, status: :created
     else 
       render json: @event.errors, status: :unprocessable_entity
@@ -19,5 +20,9 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :begin, :end)
+  end
+
+  def recive_time
+    10.minutes.ago @event.begin
   end
 end
